@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>My first personal webpage</title>
+{% load staticfiles %}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js">
+</script>
+	<script>
+    $(document).ready(function(){
+    $("#btnSend").click(function(){
+      var chatText = document.getElementById('id_chat').value;
+      alert("hhhh");
+        $.POST("http://127.0.0.1:8000/testbox/home",
+        {
+          chat: "Donald duck"
+
+        },
+        function(data,status){
+            alert("Data: " + data + "\nStatus: " + status+"\nreq: "+req);
+        });
+    });
+});
+</script>
+</head>
+
+<body class="body" style="background-color:#f6f6f6"
+	<div>
+	   {% block content %}
+	   {% endblock %}
+	</div>
+</body>
+
+</html>

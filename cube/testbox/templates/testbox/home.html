@@ -1,0 +1,41 @@
+{% extends "testbox/header.html" %}
+{% block content %}
+<p align="center"> Welcome to Chat Box website! </p>
+<br> </br>
+<p align="center"> CHAT BOX&nbsp;</p>
+<form id="reciver"  >
+<div align="center">
+<textarea name="input" id="outText" cols="100" rows="10"></textarea>
+</div>
+</form>
+<h3 align="center">sender box</h3>
+{% if is_submit %}
+    <script>alert("You are successfully submit with Userchat:{{user_obj.userchat}}")</script>
+  <!-- $(document).ready(function(){
+    $("#btnSend").click(function(){
+      var chatText = document.getElementById('id_chat').value;
+      alert("hhhh");
+        $.POST("http://127.0.0.1:8000/testbox/getreply/",
+        {
+          chat: "Donald duck"
+
+        },
+        function(data,status){
+            alert("Data: " + data + "\nStatus: " + status+"\nreq: "+req);
+        });
+    });
+});
+-->
+    {% else %}
+<!--#-->
+<form id="sender" method="POST"><!--action="{ % url 'testbox:home' % }"-->>
+<div align="center">{% csrf_token %}
+{{ form }}
+</div>
+<br />
+<div align="center">
+    <input type="submit" name="button" id="btnSend" value="send" />
+</div>
+</form>
+{% endif %}
+{% endblock %}

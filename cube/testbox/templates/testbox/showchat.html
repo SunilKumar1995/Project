@@ -1,0 +1,21 @@
+{% if all_chat %}
+ 
+    <h1>Here is the list of chat.</h1>
+<ul>
+    {% for chatLog in all_chat %}
+ 
+    <li><b> {{ chatLog.source }} : </b> {{ chatLog.chat }} </li>
+    {% endfor %}
+</ul>
+{#  In case  no user exists.  #}
+{% else %}
+<h3> No chat history found.</h3>
+{% endif %}
+
+<form action="" name="Userform" method="post">{% csrf_token %}
+    
+    {{ form }}
+    <!--<textarea name="input" id="outText" cols="100" rows="2" style="font-size:18px;font-stretch:wider" value="{{ chat }}"></textarea>-->
+   <!-- <input id="user_chat" type="text" name="user_chat" value="{{ chat }}"-->
+    <input type="submit" value="submit">
+</form>
